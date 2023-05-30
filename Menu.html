@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>TeaBound - Your milktea destination</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styleMenu.css" />
+    <link rel="stylesheet" href="styleCategory.css">
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <section class="hero">
+      <header>
+        <nav>
+          <div class="logo">
+            <img src="Logo.png" alt="logo" style="height: 90px; width: 90px;">
+          </div>
+          <input type="checkbox" id="check" />
+          <label for="check" class="menu">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="currentColor"
+              class="bi bi-list"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+              />
+            </svg>
+          </label>
+          <div class="nav-links">
+            <a href="TeaBound.html">Home</a>
+            <a href="#" class="active">Menu</a>
+            <a href="AboutUs.html">About Us</a>
+            <a href="ContactUs.html">Contact Us</a>
+          </div>
+        </nav>
+      </header>
+    </section>
+    <div class="ShopMenu">
+      <div class="container-category">
+        <div class="sidebar">
+          <div class="filter">
+            <h3>Our Menu</h3>
+            <div id="btns"></div>
+          </div>
+        </div>
+        <div class="contant">
+          <div class="header">
+            <p>Beverages</p>
+          </div>
+          <div id="root"></div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer-distributed">
+
+      <div class="footer-left">
+          <h3>Teabound</h3>
+
+          <p class="footer-links">
+              <a href="TeaBound.html">Home</a>
+              |
+              <a href="Menu.html">Menu</a>
+              |
+              <a href="AboutUs.html">About Us</a>
+              |
+              <a href="ContactUs.html">Contact Us</a>
+          </p>
+
+          <p class="footer-company-name">Copyright © 2023 <strong>Group 1 ICT201P</strong> All rights reserved</p>
+      </div>
+
+      <div class="footer-center">
+          <div>
+              <i class="fa fa-map-marker"></i>
+              <p>10 Lot, 1 Alapan St, Imus, 4103 Cavite</p>
+          </div>
+
+          <div>
+              <i class="fa fa-phone"></i>
+              <p>0976-253-8226</p>
+          </div>
+          <div>
+              <i class="fa fa-envelope"></i>
+              <p><a href="mailto:tbmtalapan@gmail.com">tbmtalapan@gmail.com</a></p>
+          </div>
+      </div>
+      <div class="footer-right">
+          <p class="footer-company-about">
+              <span>Your Milktea Destination</span>
+              <a href="#" style="color: white;">Privacy Policy</a>
+          </br>
+              <a href="#" style="color: white;">Terms and Conditions</a>
+          </p>
+          <div style="max-width:100%;list-style:none; transition: none;overflow:hidden;width:300px;height:150px;"><div id="embedded-map-display" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Tea+Bound,+Alapan+Street,+Imus,+Cavite,+Philippines&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="googl-ehtml" href="https://www.bootstrapskins.com/themes" id="enable-maps-data">premium bootstrap themes</a><style>#embedded-map-display img{max-width:none!important;background:none!important;font-size: inherit;font-weight:inherit;}</style></div>
+          <div class="footer-icons">
+              <a href="https://www.facebook.com/profile.php?id=100081779456104"><i class="fa fa-facebook"></i></a>
+          </div>
+      </div>
+  </footer>
+  <script>
+    const btns=[
+{
+	id: 1,
+	name: 'Regular Flavors'
+},
+{
+	id: 2,
+	name: 'Coolers'
+},
+{
+	id: 3,
+	name: 'Special'
+},
+{
+	id: 4,
+	name: 'House Special'
+},
+{
+	id: 5,
+	name: 'Matcha Series'
+},
+{
+	id: 6,
+	name: 'Nutella Series'
+},
+{
+	id: 7,
+	name: 'Iced Drinks'
+},
+{
+	id: 8,
+	name: 'Fruit Soda'
+},
+{
+	id: 9,
+	name: 'Fruit Tea'
+},
+]
+
+const filters = [...new Set(btns.map((btn)=>
+	{return btn}))]
+
+document.getElementById('btns').innerHTML=filters.map((btn)=>{
+	var {name, id} = btn;
+	return(
+		"<button class='fil-p' onclick='filterItems("+(id)+`)'>${name}</button>`
+		)
+}).join('');
+
+const product = [
+{
+	id: 1,
+	image: 'Logo.png',
+	title: 'Classic',
+	price: 38,
+	price2: 63,
+	category: 'Regular Flavors'
+},
+{
+	id: 1,
+	image: 'Logo.png',
+	title : 'Milky Taro',
+	price: 38,
+	price2: 63,
+	category: 'Regular Flavors'
+},
+{
+	id: 1,
+	image: 'Logo.png',
+	title : 'Red Velvet',
+	price: 38,
+	price2: 63,
+	category: 'Regular Flavors'
+},
+{
+	id: 1,
+	image: 'Logo.png',
+	title : 'Milk Choco',
+	price: 38,
+	price2: 63,
+	category: 'Regular Flavors'
+},
+{
+	id: 1,
+	image: 'Logo.png',
+	title : 'Sweet Melon',
+	price: 38,
+	price2: 63,
+	category: 'Regular Flavors'
+},
+{
+	id: 2,
+	image: 'Logo.png',
+	title : 'Green Apple',
+	price: 38,
+	price2: 63,
+	category: 'Coolers'
+},
+{
+	id: 2,
+	image: 'Logo.png',
+	title : 'Blueberry',
+	price: 38,
+	price2: 63,
+	category: 'Coolers'
+},
+{
+	id: 2,
+	image: 'Logo.png',
+	title : 'Kiwi',
+	price: 38,
+	price2: 63,
+	category: 'Coolers'
+},
+{
+	id: 2,
+	image: 'Logo.png',
+	title : 'Strawberry',
+	price: 38,
+	price2: 63,
+	category: 'Coolers'
+},
+{
+	id: 2,
+	image: 'Logo.png',
+	title : 'Mango-Lychee',
+	price: 38,
+	price2: 63,
+	category: 'Coolers'
+},
+{
+	id: 2,
+	image: 'Logo.png',
+	title : 'Lemonade Fusion',
+	price: 38,
+	price2: 63,
+	category: 'Coolers'
+},
+{
+	id: 3,
+	image: 'Logo.png',
+	title : 'Cheesecake',
+	price: 58,
+	price2: 80,
+	category: 'Special'
+},
+{
+	id: 3,
+	image: 'Logo.png',
+	title : 'Mango-Graham Cheesecake',
+	price: 58,
+	price2: 80,
+	category: 'Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Wintermelon',
+	price: 44,
+	price2: 68,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Okinawa',
+	price: 44,
+	price2: 68,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Cookies & Cream',
+	price: 44,
+	price2: 68,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Creamy Mango',
+	price: 44,
+	price2: 68,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Choco-Berry',
+	price: 44,
+	price2: 68,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: '',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Signature',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Dark Chocolate',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Dark Oreo',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Creamy Velvet',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Dark-Choco Berry',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Classic Oreo',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Premium Avocado',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Banana & Cream',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Strawberry Creme',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Chocolate Oreo',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Oreo-Strawberry',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 4,
+	image: 'Logo.png',
+	title: 'Brown Sugar',
+	price: 48,
+	price2: 73,
+	category: 'House Special'
+},
+{
+	id: 5,
+	image: 'Logo.png',
+	title: 'Classic Matcha',
+	price: 58,
+	price2: 80,
+	category: 'Matcha Series'
+},
+{
+	id: 5,
+	image: 'Logo.png',
+	title: 'Choco-Matcha',
+	price: 58,
+	price2: 80,
+	category: 'Matcha Series'
+},
+{
+	id: 5,
+	image: 'Logo.png',
+	title: 'Coffee-Matcha',
+	price: 58,
+	price2: 80,
+	category: 'Matcha Series'
+},
+{
+	id: 5,
+	image: 'Logo.png',
+	title: 'Oreo-Matcha',
+	price: 58,
+	price2: 80,
+	category: 'Matcha Series'
+},
+{
+	id: 5,
+	image: 'Logo.png',
+	title: 'Smooth Matcha',
+	price: 58,
+	price2: 80,
+	category: 'Matcha Series'
+},
+{
+	id: 6,
+	image: 'Logo.png',
+	title: 'Nutella',
+	price: 58,
+	price2: 80,
+	category: 'Nutella Series'
+},
+{
+	id: 6,
+	image: 'Logo.png',
+	title: 'Strawberry-Nutella',
+	price: 58,
+	price2: 80,
+	category: 'Nutella Series'
+},
+{
+	id: 6,
+	image: 'Logo.png',
+	title: 'Nutella-Banana',
+	price: 58,
+	price2: 80,
+	category: 'Nutella Series'
+},
+{
+	id: 7,
+	image: 'Logo.png',
+	title: 'Iced Coffee',
+	price: 50,
+	price2: 80,
+	category: 'Iced Drinks'
+},
+{
+	id: 7,
+	image: 'Logo.png',
+	title: 'Iced Mocha',
+	price: 50,
+	price2: 80,
+	category: 'Iced Drinks'
+},
+{
+	id: 7,
+	image: 'Logo.png',
+	title: 'Tiramisu',
+	price: 50,
+	price2: 80,
+	category: 'Iced Drinks'
+},
+{
+	id: 7,
+	image: 'Logo.png',
+	title: 'Iced Choco',
+	price: 50,
+	price2: 80,
+	category: 'Iced Drinks'
+},
+{
+	id: 8,
+	image: 'Logo.png',
+	title: 'Green Apple',
+	price: 48,
+	price2: 73,
+	category: 'Fruit Soda'
+},
+{
+	id: 8,
+	image: 'Logo.png',
+	title: 'Blueberry',
+	price: 48,
+	price2: 73,
+	category: 'Fruit Soda'
+},
+{
+	id: 8,
+	image: 'Logo.png',
+	title: 'Blue Lemonade',
+	price: 48,
+	price2: 73,
+	category: 'Fruit Soda'
+},
+{
+	id: 8,
+	image: 'Logo.png',
+	title: 'Strawberry',
+	price: 48,
+	price2: 73,
+	category: 'Fruit Soda'
+},
+{
+	id: 8,
+	image: 'Logo.png',
+	title: 'Mango-Lychee',
+	price: 48,
+	price2: 73,
+	category: 'Fruit Soda'
+},
+{
+	id: 9,
+	image: 'Logo.png',
+	title: 'Kiwi',
+	price: 50,
+	price2: 80,
+	category: 'Fruit Tea'
+},
+{
+	id: 9,
+	image: 'Logo.png',
+	title: 'Green Apple',
+	price: 50,
+	price2: 80,
+	category: 'Fruit Tea'
+},
+{
+	id: 9,
+	image: 'Logo.png',
+	title: 'Cucumber',
+	price: 50,
+	price2: 80,
+	category: 'Fruit Tea'
+},
+{
+	id: 9,
+	image: 'Logo.png',
+	title: 'Blueberry',
+	price: 50,
+	price2: 80,
+	category: 'Fruit Tea'
+},
+{
+	id: 9,
+	image: 'Logo.png',
+	title: 'Lemon-Strawberry',
+	price: 50,
+	price2: 80,
+	category: 'Fruit Tea'
+},
+];
+
+const categories = [...new Set(product.map((item)=>
+	{return item}))]
+
+const filterItems = (a)=>{
+	const flterCategories = categories.filter(item);
+	function item(value){
+		if(value.id==a){
+			return(
+				value.id
+				)
+		}
+	}
+	displayItem(flterCategories)
+}
+
+
+const displayItem = (items) => {
+	document.getElementById('root').innerHTML = items.map((item)=>
+	{
+		var {image, title, price, price2} = item;
+		return(
+			`<div class='box'>
+			<h3>${title}</h3>
+			<div class='img-box'>
+			<img class='images' src=${image}></img>
+			</div>
+			<div class='bottom'>
+			<h2>PHP ${price}.00 - Reg</h2>
+			<h2>PHP ${price2}.00 - Supreme</h2>
+			<button>Order Now</button>
+			</div>
+			</div>`)
+	}).join('');
+}
+displayItem(categories);
+  </script>
+  </body>
+</html>
